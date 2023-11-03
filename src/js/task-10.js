@@ -4,36 +4,41 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const createButton = document.querySelector('button[data-create]')
-createButton.addEventListener("click",createNewEl)
-// console.log(createButton)
-const divMenu = document.querySelector('#boxes')
-// console.log(divMenu)
-let amount;
-const inputEl = document.querySelector("input");
-inputEl.addEventListener('change', (event) => {
-  console.log(amount = event.currentTarget.value) ;
-})
+
+
+const amountEl = document.querySelector('input');
+const createEl = document.querySelector('button[data-create]');
+const destroyEl = document.querySelector('button[data-destroy]');
+const boxesEl = document.querySelector('#boxes');
 
 
 
-function createNewEl() {
-  let array = []
-  for(let i; i <= amount ; i++) {
-   let newDiv = document.createElement('div')
-    newDiv.style.backgroundColor = `${getRandomHexColor()}`
-    newDiv.style.width = "30px"
-    newDiv.style.height = "30px"
-    
-   return array.push(newDiv)
+createEl.addEventListener('click', function() {
+  let amount = amountEl.value;
+  if(amount > 0) {
+    createBoxes(amount);
   }
+});
 
-  
+destroyEl.addEventListener('click', function() {
+  boxesEl.innerHTML = '';
+});
 
-  
-  return .append(...array)
-  
+
+function createBoxes(amount) {
+  for(let i = 0; i < amount; i++) {
+    let elem = document.createElement('div');
+    
+    elem.style.width = 30 + (10 * i)+'px';
+    elem.style.height = 30 +'px';
+    elem.style.backgroundColor = getRandomHexColor();
+    
+    boxesEl.append(elem);
+  }
 }
+  
+
+  
 
 
 
@@ -44,23 +49,6 @@ function createNewEl() {
 
 
 
-
-
-// let elements = [];
-
-// function createElement (amount) {
-//   for(let i = 0; i <= amount; i++) {
-//     const newElement = document.createElement('div')
-//     newElement.style.backgroundColor = `${getRandomHexColor()}`
-//     newElement.style.width = "30px"
-//     newElement.style.height = "30px"
-//     elements.push(newElement)
-//   }
-
-//   return divMenu.append(...elements)
-// }
-
-// console.log(createElement())
 
 
 
