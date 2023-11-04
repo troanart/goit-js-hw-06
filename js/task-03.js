@@ -15,20 +15,10 @@ const images = [
 
 const listGalery = document.querySelector('.gallery')
 
-const newElementinList = images.map(element => {
-
-  const liElement = document.createElement("li");
-  const imgElement = document.createElement("img");
-
-  imgElement.width = 250;
-  imgElement.height = 150;
-  imgElement.src = element.url;
-  imgElement.alt = element.alt;
-
-  liElement.append(imgElement);
-  
-  return liElement;
-})
+const newElementInList = ({url, alt}) => `<li><img src="${url}" alt="${alt}" width = 300 heigth = auto ></li>`
+const markap = images.reduce((acc, item) => acc + newElementInList(item), []);
+listGalery.insertAdjacentHTML('afterbegin', markap) 
 
 
-listGalery.append(...newElementinList);
+
+
