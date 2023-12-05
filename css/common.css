@@ -3,7 +3,7 @@
 }
 
 body {
-  margin: 16px;
+  height: 95.9vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,6 +11,31 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  background:  linear-gradient(81deg, #ddb35f, #7409c7); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: colorChange 4s infinite alternate;
+}
+
+@keyframes colorChange {
+  from {
+    background-position:top 0 left 33%;
+    background-size:400% 200%;
+  
+  }
+  50% {
+    background-position:top center;
+    background-size:200% 200%;
+  }
+  to {
+    background-position:top 0 right 33%;
+    background-size:400% 200%;
+  }
+}
+.container {
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 input {
@@ -30,3 +55,82 @@ button {
   gap: 30px;
   list-style: none;
 }
+
+.main__list {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 70px;
+}
+
+.main__item {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  border: 3px solid #6d14b8;
+  border-radius: 15px;
+  /* overflow: hidden; */
+  transition: box-shadow ease-in-out 0.35s, scale ease-in-out 0.35s, border ease-in-out 0.15s,  background-color ease-in-out 0.35s;
+}
+
+.main__item:hover,
+.main__item:focus {
+  box-shadow: 0px 5px 49px 20px rgba(243, 74, 74, 0.65);
+  scale: 1.1;
+  border: 1px solid white;
+  background-color: #6d14b8;
+  backdrop-filter: blur(10px);
+  display: inline-block;
+  
+}
+
+
+.main__item:hover .box-paragraph {
+  /* transform: translateX(0%); */
+  opacity: 1;
+}
+
+.main__item:hover h2 {
+  position: absolute;
+  transform: translate(0, -120%);
+  background-color: red;
+}
+
+.main__link {
+  text-decoration: none;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 20px;
+  padding: 5px;
+  width: fit-content;
+  background-color: #6d14b8;
+  color: white;
+  border-radius: 10px;
+  transition: transform ease-in 0.15s;
+}
+
+p {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  font-style: italic;
+}
+
+
+
+.box-paragraph { 
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  overflow: hidden;
+  background-color: #212121;
+  border-radius: 15px;
+  padding: 5px;
+  transition: opacity ease-in 0.35s ;
+}
+

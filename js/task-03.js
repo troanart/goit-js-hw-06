@@ -16,7 +16,7 @@ const images = [
 const listGalery = document.querySelector('.gallery')
 
 const newElementInList = ({url, alt}) => `<li><img src="${url}" alt="${alt}" width = 300 heigth = auto ></li>`
-const markap = images.reduce((acc, item) => acc + newElementInList(item), []);
+const markap = images.reduce((acc, item) => acc + newElementInList(item), '');
 listGalery.insertAdjacentHTML('afterbegin', markap) 
 
 
